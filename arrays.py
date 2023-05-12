@@ -30,3 +30,34 @@ def isAnagram( s: str, t: str) -> bool:
     #return sorted(s) == sorted(t)
 
 
+#Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+#You may assume that each input would have exactly one solution, and you may not use the same element twice.
+#You can return the answer in any order.
+
+#solution1: T.C:O(n*2), S.C:O(1)
+def twoSum(nums, target):
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i]+nums[j] == target:
+                    return [i,j]
+
+#solution2: using a hashmap and target-nums check
+def twoSum(nums, target):
+        dict = {} #val:index
+        #now we can add all the elements to the dict before traversing
+        #through it and checking for target-number in the dict
+        #but clever way: initially say our hashmap is empty and we check each element for
+        #target-number and if it does not exist in hashmap we add {"val":index} in dict and 
+        #move on untill we find the diff number we want
+        # for i in range(len(nums)):
+        #     if target-nums[i] in dict:
+        #         return [dict[target-nums[i]],i]
+        #     else:
+        #         dict[nums[i]]=i
+        #or using enumerate fn
+        for i,n in enumerate(nums):
+            if target-n in dict:
+                return [dict[target-n],i]
+            else:
+                dict[n]=i
+                
