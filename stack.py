@@ -169,3 +169,33 @@ print(customStack)
 # customStack.delete()
 # print(customStack)
 print(type(customStack))
+
+# Question: Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+# An input string is valid if:
+
+# Open brackets must be closed by the same type of brackets.
+# Open brackets must be closed in the correct order.
+# Every close bracket has a corresponding open bracket of the same type.
+def isValid(s):
+    #we would need to use a stack to check if an open parantheses is
+    #followed by a close one or not, finally on checking all characters
+    #if the stack is empty it is valid
+    #we would also use a dict to map closing to opening parantheses
+    stack=[]
+    closeToOpenMap = {')':'(',']':'[','}':'{'}
+    #loop through the characters
+    for character in s:
+        #check if it is an open parantheses
+        if character not in closeToOpenMap:
+            stack.append(character)
+        else:
+            #check if the stack is not empty
+            #and check if the char put on top of stack is open parantheses
+            if stack and stack[-1]==closeToOpenMap[character]:
+                #if so remove the char from the top of stack
+                stack.pop()
+            #else means the no matching parantheses found
+            else:
+                return False
+    return True if not stack else False
