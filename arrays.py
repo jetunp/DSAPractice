@@ -2,7 +2,7 @@
 #An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 import collections
 #solution1: using hashmap to keep the count of letters in each string T.C:O(s+t), S.C:O(s+t)
-def isAnagram( s: str, t: str) -> bool:
+def isAnagram( s, t):
     
     #if they are the same length they cannot be anagrams
     if len(s) != len(t): 
@@ -81,3 +81,23 @@ def findDifference(nums1, nums2):
     return [answer1,answer2]
 #solution2: one liner 
     return [(set(nums1)-set(nums2)),(set(nums2)-set(nums1))]
+
+
+#bubble sorting
+def bubbleSort(arr):
+    swapped=False
+    for i in range(len(arr)-1):
+        for j in range(0,len(arr)-i-1):
+            if arr[j]>arr[j+1]:
+                swapped = True
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+        if not swapped:
+            return 
+# Driver code to test above
+arr = [64, 34, 25, 12, 22, 11, 90]
+ 
+bubbleSort(arr)
+ 
+print("Sorted array is:")
+for i in range(len(arr)):
+    print("% d" % arr[i], end=" ")
