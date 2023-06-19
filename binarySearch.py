@@ -19,7 +19,7 @@ def search(nums, target):
 
 #question2: Given a m x n matrix grid which is sorted in non-increasing order both row-wise and column-wise, return the number of negative numbers in grid.
 
- #Solution1: brute force : T.C: O(mn) S.C: O(m+n)
+ #Solution1: brute force : T.C: O(mn) S.C: O(1)
 # def countNegatives(grid):
 #         count = 0
 #         for i in range(len(grid)):
